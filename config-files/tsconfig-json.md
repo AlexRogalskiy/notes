@@ -1,0 +1,46 @@
+---
+title : tsconfig.json
+description : tsconfig file.
+tags : ['config-files', 'typescript']
+---
+
+# tsconfig.json
+
+```json
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "outDir": "./dist",
+    "inlineSourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "baseUrl": "./",
+    "module": "umd",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "strict": false,
+    "skipLibCheck": true,
+    "allowJs": true
+  },
+    "include": [
+    "src/*",
+    "worker/*"
+  ],
+  "exclude": [
+    "**/node_modules/*",
+  ]
+}
+```

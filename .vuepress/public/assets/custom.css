@@ -1,0 +1,50 @@
+/* sidebar stuff */
+
+@media only screen and (min-width: 600px) {
+    .no-sidebar-metacard-container .content {
+        max-width: calc(100% - 20px);
+        padding: 32px 100px;
+    }
+
+    .sidebar-metacard-container .content {
+        max-width: calc(100% - 100px);
+        padding: 32px 30px;
+    }
+}
+
+.download-page a svg {
+    display: none !important;
+}
+
+
+
+.no-sidebar-metacard-container .tags-container,
+.sidebar-metacard-container .tags-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+
+/* Prism language js */
+div[class*="language-"]:before {
+    color: var(--accent-color);
+    font-family: var(--heading-font-family);
+}
+
+.sw-update-popup {
+    border: none;
+    border-radius: 0px;
+    background-color: var(--text-color--dark);
+    color: var(--accent-color);
+    font-family: var(--heading-font-family);
+}
+
+.sw-update-popup button {
+    border: none;
+    background-color: var(--accent-color);
+    font-family: var(--heading-font-family);
+    font-size: 16px;
+    margin-top: 15px !important;
+    cursor: pointer;
+}

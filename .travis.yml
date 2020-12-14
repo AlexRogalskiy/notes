@@ -1,0 +1,31 @@
+sudo: required
+dist: trusty
+language: node_js
+cache:
+- npm
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+  slack:
+    secure: iPE7+bx8yBeVHsgb97HJMtzMmvFG9b6w7riuF8r5Pu3chgD6A4teBAZU2uHT16xARh7mbo08rjgj+riIiuWHwkH1A6jb0RCOD1LCdRG+VkKsQ4R84Tsd0ZDb9tsz3jzFcIi6V4r6LIaRGBDWRMhrYGfGKdYykhLlh8L8GqPialiVLSmeuxPLcyTGt3uVHZCH51RnfpCsOEDXD1pQPAjSKTK02/dXWuxX8/9JNDiLQjG9VlZrCNhY5YFNKCuDQ51syUdsz8Z3A4EyGvLGxYCQTRNL+R+kQD3VtzQj24qOeNEa8ZNmD+hdWLSOE1X9PVPeBNUe1JuvTSEfAVLKKtYQ0JTQ8nbxnMpm1hFFzDno6J2aoK5zBH8RVowRDyh8meiCCnYKDAP6vy9ZK13W9+5FINrANfXxfymlcO5eY6uimF2DlNV7jcK28EW7bKOF1Hu+1Nx0RAEj0tfONNxPFyPI7SuKLxOLKwvvJ9QdWoPqC6rq6klJt3gSi/8nC7eIwlKVq8kfoYuJ7DI84nv9Og9EUV9RjsHsLsz5tOlafCcEYuBJnZLlMBEIYZ8zIVjfS9XBJ9vAg9HqYWUocfsL/iPbcx8taW35yeLnPXSMCm19CfnwJ+nAud22i1Z1sropxJZ/KBYu82Ap698XM2KCIvwZoly/OuD2hIAQNLenjD3cHRQ=
+matrix:
+  include:
+  - os: linux
+    node_js: lts/*
+install:
+- npm install
+script:
+- npm run pre-build
+- npm run build
+- npm run post-build
+after_script:
+- rm -rf ""./.vuepress/dist/edfora"
+deploy:
+  local_dir: "./.vuepress/dist"
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  fqdn: notes.nishkal.in
+  on:
+    branch: master
